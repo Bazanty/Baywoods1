@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import PromoBanner from "./components/PromoBanner";
 import TrendingProducts from "./components/TrendingProducts";
 import Footer from "./components/Footer";
+import StoriesPage from "./about/stories/page";
 export default function Home() {
   return (
     <main className="min-h-screen bg-white text-black">
@@ -15,6 +16,7 @@ export default function Home() {
         <FeaturedCollections />
         <TrendingProducts />
         <PromoBanner />
+        <StoriesPage />
         <Footer />
 
         
