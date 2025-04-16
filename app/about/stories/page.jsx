@@ -34,7 +34,7 @@ export default function StoriesPage() {
             year: "2025",
             title: "First Breakthrough",
             description: "Our selection of premium sneakers gained significant attention after being worn by several influencers, leading to our first major retail partnership.",
-            image: "/story-2013.jpg",
+            image: "/530drip.jpeg",
             category: "growth",
             color: "bg-green-500"
         },
@@ -42,7 +42,7 @@ export default function StoriesPage() {
             year: "2023",
             title: "Sustainability Commitment",
             description: "At Baywoods, we are committed to sustainability. We strive to incorporate eco-friendly practices into our products, focusing on creating stylish, high-quality items while minimizing our environmental impact.",
-            image: "/story-2016.jpg",
+            image: "/Down.jpeg",
             category: "impact",
             color: "bg-purple-500"
         },
@@ -100,8 +100,8 @@ export default function StoriesPage() {
         }
     ];
 
-    const filteredTimeline = activeFilter === "all" 
-        ? timeline 
+    const filteredTimeline = activeFilter === "all"
+        ? timeline
         : timeline.filter(item => item.category === activeFilter);
 
     return (
@@ -146,8 +146,8 @@ export default function StoriesPage() {
                         </div>
                     </div>
 
-                    <button 
-                        className="md:hidden p-2 rounded-lg bg-gray-100" 
+                    <button
+                        className="md:hidden p-2 rounded-lg bg-gray-100"
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                     >
                         {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -190,7 +190,7 @@ export default function StoriesPage() {
                                 From a small Nairobi workshop to becoming a recognized name in African streetwear fashion.
                             </p>
                             <div className="flex flex-wrap gap-4">
-                                <button 
+                                <button
                                     onClick={() => setLiked(!liked)}
                                     className={`flex items-center gap-2 px-5 py-3 rounded-full ${liked ? 'bg-red-100 text-red-600' : 'bg-gray-100 text-gray-700'} transition-colors`}
                                 >
@@ -198,7 +198,7 @@ export default function StoriesPage() {
                                     <span>{liked ? 'Liked' : 'Like this story'}</span>
                                 </button>
                                 <div className="relative">
-                                    <button 
+                                    <button
                                         onClick={() => setShareOpen(!shareOpen)}
                                         className="flex items-center gap-2 px-5 py-3 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors"
                                     >
@@ -225,14 +225,15 @@ export default function StoriesPage() {
                             </div>
                         </div>
                         <div className="relative h-80 md:h-96 rounded-2xl overflow-hidden shadow-2xl">
-                            <Image
-                                src="/story1.jpeg"
-                                alt="Our Story"
-                                fill
-                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                className="object-cover"
-                                priority
-                            />
+                            <div className="relative aspect-square md:aspect-[4/3] w-full">
+                                <Image
+                                    src={timeline[0].image}
+                                    alt={timeline[0].title}
+                                    fill
+                                    className="object-cover"
+                                    sizes="(max-width: 768px) 100vw, 33vw"
+                                />
+                            </div>
                             <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
                         </div>
                     </div>
@@ -242,25 +243,25 @@ export default function StoriesPage() {
             {/* Timeline Filters */}
             <div className="max-w-7xl mx-auto px-6 mb-12">
                 <div className="flex flex-wrap gap-3">
-                    <button 
+                    <button
                         onClick={() => setActiveFilter("all")}
                         className={`px-5 py-2 rounded-full text-sm font-medium transition-colors ${activeFilter === "all" ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
                     >
                         All Stories
                     </button>
-                    <button 
+                    <button
                         onClick={() => setActiveFilter("milestone")}
                         className={`px-5 py-2 rounded-full text-sm font-medium transition-colors ${activeFilter === "milestone" ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
                     >
                         Milestones
                     </button>
-                    <button 
+                    <button
                         onClick={() => setActiveFilter("growth")}
                         className={`px-5 py-2 rounded-full text-sm font-medium transition-colors ${activeFilter === "growth" ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
                     >
                         Growth
                     </button>
-                    <button 
+                    <button
                         onClick={() => setActiveFilter("impact")}
                         className={`px-5 py-2 rounded-full text-sm font-medium transition-colors ${activeFilter === "impact" ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
                     >
@@ -273,7 +274,7 @@ export default function StoriesPage() {
             <div className="max-w-7xl mx-auto px-6 pb-20">
                 <div className="space-y-16">
                     {filteredTimeline.map((item, index) => (
-                        <div 
+                        <div
                             key={index}
                             className={`group relative pl-8 md:pl-12 before:absolute before:left-0 before:top-0 before:h-full before:w-1 ${item.color} before:rounded-full`}
                         >
@@ -292,7 +293,7 @@ export default function StoriesPage() {
                                     </div>
                                     <div className="md:w-2/3">
                                         <div className="flex items-center gap-4 mb-4">
-                                            <span className={`px-3 py-1 rounded-full text-xs font-bold text-black ${item.color}`}>
+                                            <span className={`px-3 py-1 rounded-full text-xs font-bold text-white ${item.color}`}>
                                                 {item.year}
                                             </span>
                                             <span className="text-sm text-gray-500">{item.category.toUpperCase()}</span>
@@ -386,16 +387,20 @@ export default function StoriesPage() {
 
             {/* CTA Section */}
             <div className="relative py-28 overflow-hidden bg-gray-900">
-                <Image
-                    src="/cta-bg.jpg"
-                    alt="Join Baywoods"
-                    fill
-                    sizes="100vw"
-                    className="object-cover opacity-20"
-                />
+                <div className="absolute inset-0">
+                    <Image
+                        src="/drip5.jpeg"
+                        alt="Join Baywoods"
+                        fill
+                        className="object-cover opacity-20"
+                        sizes="100vw"
+                        quality={75}
+                    />
+                </div>
+
                 <div className="relative max-w-4xl mx-auto px-6 text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">Ready to Walk With Us?</h2>
-                    <p className="text-xl text-black mb-8 max-w-2xl mx-auto">
+                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Walk With Us?</h2>
+                    <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
                         Join thousands of others who are already part of the Baywoods journey
                     </p>
                     <div className="flex flex-col sm:flex-row justify-center gap-4">
@@ -407,7 +412,7 @@ export default function StoriesPage() {
                         </Link>
                         <Link
                             href="/about/impacts"
-                            className="border-2 border-white text-black px-8 py-4 rounded-full font-bold flex items-center justify-center gap-2 hover:bg-white hover:text-gray-900 transition-colors"
+                            className="border-2 border-white text-white px-8 py-4 rounded-full font-bold flex items-center justify-center gap-2 hover:bg-white hover:text-gray-900 transition-colors"
                         >
                             Our Mission <ChevronRight className="w-5 h-5" />
                         </Link>
