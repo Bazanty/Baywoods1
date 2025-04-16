@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="bg-green-900 text-white mt-16">
+    <footer className="bg-zinc-950 text-white mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
         
         {/* Shop */}
@@ -46,7 +46,7 @@ const Footer = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-brown-700 py-10 text-center px-4 sm:px-0">
+      <div className="border-t border-zinc-800 py-10 text-center px-4 sm:px-0">
         <p className="text-gray-300 text-sm mb-4">
           Elevate your streetwear game with our curated collection of shoes and caps.
         </p>
