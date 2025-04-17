@@ -106,7 +106,7 @@ export default function ProductCollection() {
   };
 
   return (
-    <div className="min-h-screen w-full">
+    <div className="min-h-screen w-full text-black" >
       <Navbar />
       {/* Full-page background image */}
       <div className="fixed inset-0 -z-10">
